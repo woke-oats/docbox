@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>docbox</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="a box for your docs">
+    <meta name="author" content="Woke Oats">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        let textBox
+
+        function init ()
+        {
+            textBox = document.getElementById("textinput")
+            docUrl = document.getElementById("docurl")
+            docUrl.innerHTML = window.location.href;
+            ///////// TODO: Get unique text to put here
+            textBox.value = "The text will go here"
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <h1>docbox</h1>
+    <p>Viewing:</p>
+    <p id="docurl"></p>
+    <p><textarea id="textinput" rows="10" cols="100" autofocus="true" maxlength="1000000" readonly="true" style="font-family: monospace"></textarea></p>
+    <br>
+    <p><a href="index.html">Use docbox</a></p>
+</body>
+
+</html>

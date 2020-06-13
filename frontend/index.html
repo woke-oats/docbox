@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>docbox</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="a box for your docs">
+    <meta name="author" content="Woke Oats">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        let textBox
+        let docUrl
+
+        function submit ()
+        {
+            let text = textBox.value
+
+            if (text === "")
+            {
+                docUrl.innerHTML = "Empty field!"
+                return
+            }
+
+            ///////// TODO: Send text to server
+            console.log(text)
+            ///////// TODO: Display URL
+            docUrl.innerHTML = "URL GOES HERE"
+        }
+
+        function init ()
+        {
+            textBox = document.getElementById("textinput")
+            docUrl = document.getElementById("docurl")
+            textBox.value = ""
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <h1>docbox</h1>
+    <p><textarea id="textinput" rows="10" cols="100" autofocus="true" maxlength="1000000" style="font-family: monospace"></textarea></p>
+    <p><button onclick="submit()">Submit</button></p>
+    <br>
+    <p>Your URL:</p>
+    <p id="docurl">N/A</p>
+</body>
+
+</html>
