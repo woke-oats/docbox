@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, jsonify, url_for
 import sqlite3
+
+from flask import Flask, jsonify, render_template, request, url_for
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 

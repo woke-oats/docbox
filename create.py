@@ -3,7 +3,6 @@
 #
 import sqlite3
 
-
 conn = sqlite3.connect("text.db")
 conn.execute(
     """CREATE TABLE documents (
