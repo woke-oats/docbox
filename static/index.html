@@ -23,9 +23,16 @@
             }
 
             ///////// TODO: Send text to server
+            fetch('/create', {
+                method: 'POST',
+                body: JSON.stringify(text)
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    docUrl.innerHTML = "<a href=" + data.url + ">"+ data.url +"</a>"
+                })
             console.log(text)
             ///////// TODO: Display URL
-            docUrl.innerHTML = "URL GOES HERE"
         }
 
         function init ()
