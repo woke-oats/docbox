@@ -28,6 +28,10 @@ def create():
     conn = sqlite3.connect("text.db")
     cursor = conn.cursor()
     data = request.data
+
+    # check for max input size
+    if len(data) > 1000000:
+        return jsonify({"url": "error: text too long"})
     cursor.execute("INSERT INTO documents (doc) VALUES (?)", (data,))
     conn.commit()
     rowid = cursor.lastrowid
@@ -35,7 +39,8 @@ def create():
     return jsonify(
         {
             "url": "{}{}".format(
-                request.base_url.replace("create", "")[:-1], url_for("display", number=rowid)
+                request.base_url.replace("create", "")[:-1],
+                url_for("display", number=rowid),
             )
         }
     )
