@@ -7,14 +7,35 @@
     <meta name="description" content="a box for your docs">
     <meta name="author" content="Woke Oats">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        h1 {
+            font-size: 100px;
+            margin: 0;
+        }
+
+        body {
+            color: #222222;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            background-color: #f0f0f0;
+            border-style: solid;
+            border-color: #000000;
+            border-width: 2px;
+            outline: none;
+            padding: 6px;
+            font-size: 15px;
+            font-family: monospace;
+        }
+    </style>
 </head>
 
-<body onload="document.getElementById('docurl').innerHTML = window.location.href">
-
+<body>
     <h1>docbox</h1>
-    <p>Viewing:</p>
-    <p id="docurl"></p>
-    <p><textarea id="textinput" rows="10" cols="100" autofocus="true" maxlength="1000000" readonly="true" style="font-family: monospace">{{ text }}</textarea></p>
+    <p><textarea id="textinput" rows="10" cols="100" autofocus="true" maxlength="1000000" readonly="true"
+            style="font-family: monospace">{{ text }}</textarea></p>
     <br>
     <p><a href="index.html">Use docbox</a></p>
 </body>

@@ -7,36 +7,61 @@
     <meta name="description" content="a box for your docs">
     <meta name="author" content="Woke Oats">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            font-size: 100px;
+            margin: 0;
+        }
+
+        body {
+            color: #222222;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            background-color: #f0f0f0;
+            border-style: solid;
+            border-color: #000000;
+            border-width: 2px;
+            outline: none;
+            padding: 6px;
+            font-size: 15px;
+            font-family: monospace;
+        }
+
+        button {
+            font-size: 20px;
+        }
+
+        #docurl {
+            font-size: 20px;
+        }
+    </style>
 
     <script>
         let textBox
         let docUrl
 
-        function submit ()
-        {
+        function submit() {
             let text = textBox.value
 
-            if (text === "")
-            {
-                docUrl.innerHTML = "Empty field!"
+            if (text === "") {
+                docUrl.innerHTML = "empty field!"
                 return
             }
 
-            ///////// TODO: Send text to server
             fetch('/create', {
                 method: 'POST',
                 body: JSON.stringify(text)
-                })
+            })
                 .then(resp => resp.json())
                 .then(data => {
-                    docUrl.innerHTML = "<a href=" + data.url + ">"+ data.url +"</a>"
+                    docUrl.innerHTML = "<a href=" + data.url + ">" + data.url + "</a>"
                 })
             console.log(text)
-            ///////// TODO: Display URL
         }
 
-        function init ()
-        {
+        function init() {
             textBox = document.getElementById("textinput")
             docUrl = document.getElementById("docurl")
             textBox.value = ""
@@ -46,11 +71,13 @@
 
 <body onload="init()">
     <h1>docbox</h1>
-    <p><textarea id="textinput" rows="10" cols="100" autofocus="true" maxlength="1000000" style="font-family: monospace"></textarea></p>
-    <p><button onclick="submit()">Submit</button></p>
+    <p><textarea id="textinput" rows="10" cols="100" autofocus="true" maxlength="1000000" spellcheck="false"></textarea>
+    </p>
+    <p><button onclick="submit()">submit</button></p>
     <br>
-    <p>Your URL:</p>
-    <p id="docurl">N/A</p>
+    <strong>
+        <p id="docurl"></p>
+    </strong>
 </body>
 
 </html>
