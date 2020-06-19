@@ -14,6 +14,9 @@ python3 -m venv venv
 
 # Install requirements
 pip3 install -r requirements.txt
+
+# Create the DB file
+python3 create.py
 ```
 
 ## How to Run
